@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://prf0tnsrfehq"]
+
+[ext_resource type="Script" uid="uid://cmlufmmjuuu2r" path="res://Scripts/spawner.gd" id="1_vk57k"]
+[ext_resource type="PackedScene" uid="uid://dbr101tkrndll" path="res://Scenes/inimigo.tscn" id="2_8ffim"]
+
+[sub_resource type="Curve2D" id="Curve2D_qqy1o"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 68, 322, 0, 0, 0, 0, 582, 322, 0, 0, 0, 0, 582, 106, 0, 0, 0, 0, 902, 106, 0, 0, 0, 0, 898, 322, 0, 0, 0, 0, 984, 322)
+}
+point_count = 6
+
+[node name="Level_1" type="Node2D" unique_id=725546425]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=811266228]
+position = Vector2(17, 115)
+curve = SubResource("Curve2D_qqy1o")
+
+[node name="Spawner" type="Node" parent="." unique_id=142497063 node_paths=PackedStringArray("path")]
+script = ExtResource("1_vk57k")
+inimigo_cena = ExtResource("2_8ffim")
+path = NodePath("../Path2D")
