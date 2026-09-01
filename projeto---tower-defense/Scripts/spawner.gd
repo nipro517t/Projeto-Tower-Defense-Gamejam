@@ -5,7 +5,7 @@ extends Node
 
 func _ready():
 	var tempo = Timer.new()
-	tempo.wait_time = 2.0 # tempo para spawnar outro inimigo
+	tempo.wait_time = 2.0 # tempo pr spawnar outro inimigo
 	tempo.timeout.connect(_spawnar_inimigo)
 	add_child(tempo)
 	tempo.start()
