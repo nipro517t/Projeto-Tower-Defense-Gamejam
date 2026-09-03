@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Projeto - Tower Defense"
+run/main_scene="uid://prf0tnsrfehq"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Game="*uid://b7tf153fr01gm"
 
 [display]
 

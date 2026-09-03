@@ -3,17 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://icon.svg" id="1_bvn5s"]
 [ext_resource type="Script" uid="uid://cjajafsa8qpp5" path="res://Scripts/torre.gd" id="1_j1w73"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
-radius = 60.00833
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
+radius = 153.0
 
-[node name="Torre" type="Node2D" unique_id=138036725]
+[node name="Torre" type="Node2D" unique_id=1741663129]
 script = ExtResource("1_j1w73")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1115638554]
-scale = Vector2(0.455, 0.422)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=357409826]
+scale = Vector2(0.453125, 0.375)
 texture = ExtResource("1_bvn5s")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1561716048]
+[node name="Area2D" type="Area2D" parent="." unique_id=403673835]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=408306095]
-shape = SubResource("CircleShape2D_xrivr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1969836994]
+shape = SubResource("CircleShape2D_ebum8")
