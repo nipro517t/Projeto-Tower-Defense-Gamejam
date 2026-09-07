@@ -2,6 +2,7 @@ extends Area2D
 
 @export var velocidade: float = 100.0  # pixels por segundo, controla o ritmo de movimento
 @export var vida_max: int = 10         # vida inicial do inimigo
+@export var valor_recompensa: int = 25 #valor ganho ao matar um inimigo
 
 var vida: int                # vida atual, diminui ao receber dano
 var path_follow: PathFollow2D  # referência ao "marcador" no caminho; atribuída pelo spawner, começa vazia
@@ -25,6 +26,7 @@ func receber_dano(quantidade: int):
 func morrer(morte: bool):
 	
 	if morte:
+		Game.dinheiro += valor_recompensa
 		path_follow.queue_free()
 		queue_free()
 	else:

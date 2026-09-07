@@ -13,7 +13,7 @@ config_version=5
 config/name="Projeto - Tower Defense"
 run/main_scene="uid://prf0tnsrfehq"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [autoload]
 

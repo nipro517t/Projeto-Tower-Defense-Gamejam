@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b6lks50fk3qd4"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1735513546]
+
+[node name="Control" type="Control" parent="." unique_id=607717341]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1809773022]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="coins_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1721467242]
+layout_mode = 2
+
+[node name="coin_icon" type="TextureRect" parent="Control/MarginContainer/coins_container" unique_id=1924473684]
+layout_mode = 2
+
+[node name="coin_counter" type="Label" parent="Control/MarginContainer/coins_container" unique_id=1409977399]
+layout_mode = 2

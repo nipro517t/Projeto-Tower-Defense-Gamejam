@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://n64wubtloick"]
 
-[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://icon.svg" id="1_bvn5s"]
+[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="1_bvn5s"]
 [ext_resource type="Script" uid="uid://cjajafsa8qpp5" path="res://Scripts/torre.gd" id="1_j1w73"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]

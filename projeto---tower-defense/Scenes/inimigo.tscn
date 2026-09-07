@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbr101tkrndll"]
 
 [ext_resource type="Script" uid="uid://csx4e51vwmiux" path="res://Scripts/inimigo.gd" id="1_1vr66"]
-[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://icon.svg" id="1_nj8y5"]
+[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="1_nj8y5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(56, 50)
