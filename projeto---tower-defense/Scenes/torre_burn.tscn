@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c24vfipmk38ac"]
+
+[ext_resource type="Script" uid="uid://cjajafsa8qpp5" path="res://Scripts/torre.gd" id="1_t7ulp"]
+[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="2_bfc3a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
+radius = 153.0
+
+[node name="Torre_burn" type="Node2D" unique_id=1741663129]
+script = ExtResource("1_t7ulp")
+tipo_dano = "Fogo"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=357409826]
+scale = Vector2(0.453125, 0.375)
+texture = ExtResource("2_bfc3a")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=403673835]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1969836994]
+shape = SubResource("CircleShape2D_ebum8")
+debug_color = Color(0.91993326, 0.28566414, 0.002873791, 0.41960785)

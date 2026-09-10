@@ -1,5 +1,75 @@
 [gd_scene format=3 uid="uid://b6lks50fk3qd4"]
 
+[ext_resource type="Texture2D" uid="uid://bhji4fo5t5ol7" path="res://Assets/Coin/coin1.png" id="1_7gr8i"]
+[ext_resource type="Texture2D" uid="uid://cafnvcf4j6xmf" path="res://Assets/Coin/coin2.png" id="2_5ep0j"]
+[ext_resource type="Texture2D" uid="uid://sleeg5g5e1xe" path="res://Assets/Coin/coin3.png" id="3_4f5kr"]
+[ext_resource type="Texture2D" uid="uid://dwar34bkaq7n3" path="res://Assets/Coin/coin4.png" id="4_piegi"]
+[ext_resource type="Texture2D" uid="uid://bslut3i4waw3a" path="res://Assets/Coin/coin5.png" id="5_i2avg"]
+[ext_resource type="Texture2D" uid="uid://dh6xrrl8mustj" path="res://Assets/Coin/coin6.png" id="6_1a2va"]
+[ext_resource type="Texture2D" uid="uid://jjdd4yxyh73i" path="res://Assets/Coin/coin7.png" id="7_ssfue"]
+[ext_resource type="Texture2D" uid="uid://csgj0ksu50xaq" path="res://Assets/Coin/coin8.png" id="8_8bf2m"]
+[ext_resource type="Texture2D" uid="uid://cyv604uti2tst" path="res://Assets/Coin/coin9.png" id="9_ba8gd"]
+[ext_resource type="Texture2D" uid="uid://dbh870r226aib" path="res://Assets/Heart/heart1.png" id="10_0iicw"]
+[ext_resource type="Texture2D" uid="uid://b6g3vbauj2lar" path="res://Assets/Heart/heart2.png" id="11_ajim5"]
+[ext_resource type="Texture2D" uid="uid://cpmp6mql1nr4q" path="res://Assets/Heart/heart11.png" id="12_vxf74"]
+[ext_resource type="Texture2D" uid="uid://cdwgv1n2xbcb1" path="res://Assets/Heart/heart12.png" id="13_oersf"]
+[ext_resource type="Texture2D" uid="uid://3x4df2iprdv4" path="res://Assets/Heart/heart3.png" id="14_484xk"]
+[ext_resource type="Texture2D" uid="uid://b3j0ogi7hmhga" path="res://Assets/Heart/heart4.png" id="15_lkt4f"]
+[ext_resource type="Texture2D" uid="uid://ch1nfnv0n1vfc" path="res://Assets/Heart/heart5.png" id="16_wfkbc"]
+[ext_resource type="Texture2D" uid="uid://lo8eoorxkc8d" path="res://Assets/Heart/heart6.png" id="17_s17ah"]
+[ext_resource type="Texture2D" uid="uid://dvas7ip2lgwi3" path="res://Assets/Heart/heart7.png" id="18_jnyvx"]
+[ext_resource type="Texture2D" uid="uid://cibrulw6do7de" path="res://Assets/Heart/heart8.png" id="19_qtyhc"]
+[ext_resource type="Texture2D" uid="uid://2vjwbgmxyac2" path="res://Assets/Heart/heart9.png" id="20_q562m"]
+[ext_resource type="Texture2D" uid="uid://cl8hp64syy0qv" path="res://Assets/Heart/heart10.png" id="21_l8r83"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_3gfia"]
+frames = 9
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_7gr8i")
+frame_1/texture = ExtResource("2_5ep0j")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_4f5kr")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_piegi")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_i2avg")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_1a2va")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_ssfue")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("8_8bf2m")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("9_ba8gd")
+frame_8/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_5ep0j"]
+frames = 12
+speed_scale = 12.0
+frame_0/texture = ExtResource("10_0iicw")
+frame_1/texture = ExtResource("11_ajim5")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("14_484xk")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("15_lkt4f")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("16_wfkbc")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("17_s17ah")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("18_jnyvx")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("19_qtyhc")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("20_q562m")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("21_l8r83")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("12_vxf74")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("13_oersf")
+frame_11/duration = 1.0
+
 [node name="HUD" type="CanvasLayer" unique_id=1735513546]
 
 [node name="Control" type="Control" parent="." unique_id=607717341]
@@ -17,12 +87,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 21
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
 [node name="coins_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1721467242]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="coin_icon" type="TextureRect" parent="Control/MarginContainer/coins_container" unique_id=1924473684]
+texture_filter = 1
 layout_mode = 2
+texture = SubResource("AnimatedTexture_3gfia")
 
 [node name="coin_counter" type="Label" parent="Control/MarginContainer/coins_container" unique_id=1409977399]
 layout_mode = 2
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="wave_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=554366218]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="wave_label" type="Label" parent="Control/MarginContainer/wave_container" unique_id=1093891358]
+layout_mode = 2
+text = "Rodada:"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="wave_counter" type="Label" parent="Control/MarginContainer/wave_container" unique_id=2086117244]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="life_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=129582793]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="life_icon" type="TextureRect" parent="Control/MarginContainer/life_container" unique_id=1218604129]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AnimatedTexture_5ep0j")
+expand_mode = 3
+
+[node name="life_counter" type="Label" parent="Control/MarginContainer/life_container" unique_id=837499550]
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 2
