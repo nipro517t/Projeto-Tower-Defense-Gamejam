@@ -3,6 +3,7 @@ extends Area2D
 @export var velocidade: float = 100.0
 @export var vida_max: int = 10
 @export var valor_recompensa: int = 25
+@onready var label: Label = $Label
 
 
 var vida: int
@@ -19,6 +20,7 @@ func _ready():
 
 
 func _process(delta):
+	label.text = str(vida)
 	path_follow.progress += velocidade * delta
 	global_position = path_follow.global_position
 
@@ -64,6 +66,6 @@ func morrer(morte: bool):
 		path_follow.queue_free()
 		queue_free()
 	else:
-		Game.vida_jogador -= 1
+		Game.vida_jogador -= 2
 		path_follow.queue_free()
 		queue_free()

@@ -4,10 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://dbr101tkrndll" path="res://Scenes/inimigo.tscn" id="2_8ffim"]
 [ext_resource type="PackedScene" uid="uid://c24vfipmk38ac" path="res://Scenes/torre_burn.tscn" id="3_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="4_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://b6lks50fk3qd4" path="res://Scenes/hud.tscn" id="5_6444e"]
+[ext_resource type="PackedScene" uid="uid://n64wubtloick" path="res://Scenes/torre.tscn" id="6_evi0p"]
 
 [sub_resource type="Curve2D" id="Curve2D_qqy1o"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 68, 322, 0, 0, 0, 0, 582, 322, 0, 0, 0, 0, 582, 106, 0, 0, 0, 0, 902, 106, 0, 0, 0, 0, 898, 322, 0, 0, 0, 0, 984, 322)
+"points": PackedVector2Array(0, 0, 0, 0, 71, 322, 0, 0, 0, 0, 301, 323, 0, 0, 0, 0, 302, 105, 0, 0, 0, 0, 579, 105, 0, 0, 0, 0, 577, 323, 0, 0, 0, 0, 836, 323)
 }
 point_count = 6
 
@@ -22,12 +24,22 @@ script = ExtResource("1_vk57k")
 inimigo_cena = ExtResource("2_8ffim")
 path = NodePath("../Path2D")
 
-[node name="Torre_burn" parent="." unique_id=1741663129 instance=ExtResource("3_xfk5q")]
-position = Vector2(222, 367)
+[node name="Torre" parent="." unique_id=1741663129 instance=ExtResource("6_evi0p")]
+position = Vector2(388, 293)
+
+[node name="Torre_burn" parent="." unique_id=1656852682 instance=ExtResource("3_xfk5q")]
+position = Vector2(158, 363)
 burn_dano_por_tick = 1
 
-[node name="Final" type="Sprite2D" parent="." unique_id=795887790]
-z_index = 1
-position = Vector2(997.99994, 434)
-scale = Vector2(0.51562524, 0.54687494)
+[node name="hud_preview" type="Sprite2D" parent="." unique_id=795887790]
+position = Vector2(1056, 324)
+scale = Vector2(1.4999999, 4.9375)
 texture = ExtResource("4_7p6j4")
+
+[node name="Final" type="Sprite2D" parent="." unique_id=1652466972]
+z_index = 1
+position = Vector2(856, 440)
+scale = Vector2(0.5000002, 0.49999982)
+texture = ExtResource("4_7p6j4")
+
+[node name="HUD" parent="." unique_id=1735513546 instance=ExtResource("5_6444e")]

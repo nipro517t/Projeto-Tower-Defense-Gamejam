@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6lks50fk3qd4"]
 
 [ext_resource type="Texture2D" uid="uid://bhji4fo5t5ol7" path="res://Assets/Coin/coin1.png" id="1_7gr8i"]
+[ext_resource type="Script" uid="uid://cdnt4y0c32ndr" path="res://Scripts/hud_manager.gd" id="1_ajim5"]
 [ext_resource type="Texture2D" uid="uid://cafnvcf4j6xmf" path="res://Assets/Coin/coin2.png" id="2_5ep0j"]
 [ext_resource type="Texture2D" uid="uid://sleeg5g5e1xe" path="res://Assets/Coin/coin3.png" id="3_4f5kr"]
 [ext_resource type="Texture2D" uid="uid://dwar34bkaq7n3" path="res://Assets/Coin/coin4.png" id="4_piegi"]
@@ -79,6 +80,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ajim5")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1809773022]
 layout_mode = 1
@@ -104,7 +106,6 @@ texture = SubResource("AnimatedTexture_3gfia")
 
 [node name="coin_counter" type="Label" parent="Control/MarginContainer/coins_container" unique_id=1409977399]
 layout_mode = 2
-text = "000"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -115,15 +116,19 @@ size_flags_vertical = 0
 
 [node name="wave_label" type="Label" parent="Control/MarginContainer/wave_container" unique_id=1093891358]
 layout_mode = 2
+size_flags_horizontal = 8
 text = "Rodada:"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="wave_counter" type="Label" parent="Control/MarginContainer/wave_container" unique_id=2086117244]
 layout_mode = 2
-text = "1"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Control" type="Control" parent="Control/MarginContainer/wave_container" unique_id=299078506]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 
 [node name="life_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=129582793]
 layout_mode = 2
@@ -138,6 +143,9 @@ expand_mode = 3
 
 [node name="life_counter" type="Label" parent="Control/MarginContainer/life_container" unique_id=837499550]
 layout_mode = 2
-text = "100"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Control" type="Control" parent="Control/MarginContainer/life_container" unique_id=53439955]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2

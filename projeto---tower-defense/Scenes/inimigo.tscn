@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="1_nj8y5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(56, 50)
+size = Vector2(30, 24)
 
 [node name="Area2D" type="Area2D" unique_id=2052992806]
 collision_layer = 2
@@ -14,5 +14,9 @@ script = ExtResource("1_1vr66")
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1251666456]
-scale = Vector2(0.42187503, 0.37500003)
+scale = Vector2(0.23437499, 0.18749999)
 texture = ExtResource("1_nj8y5")
+
+[node name="Label" type="Label" parent="." unique_id=1277845332]
+offset_right = 40.0
+offset_bottom = 23.0
