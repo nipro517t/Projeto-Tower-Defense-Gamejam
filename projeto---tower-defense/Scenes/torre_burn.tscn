@@ -1,18 +1,95 @@
 [gd_scene format=3 uid="uid://c24vfipmk38ac"]
 
 [ext_resource type="Script" uid="uid://cjajafsa8qpp5" path="res://Scripts/torre.gd" id="1_t7ulp"]
-[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="2_bfc3a"]
+[ext_resource type="Texture2D" uid="uid://rlehlk67qroj" path="res://Assets/Towers/torre_fogo.png" id="2_bfc3a"]
+[ext_resource type="Texture2D" uid="uid://cvnonpr5nl48y" path="res://Assets/Towers/TowerWeapons/weapon_fogo.png" id="3_6yhue"]
+[ext_resource type="PackedScene" uid="uid://dqnxdsr4p04xm" path="res://Scenes/projetil_fogo.tscn" id="3_pjf01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkve5"]
+atlas = ExtResource("3_6yhue")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihwba"]
+atlas = ExtResource("3_6yhue")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrcbb"]
+atlas = ExtResource("3_6yhue")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wihb"]
+atlas = ExtResource("3_6yhue")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k52p"]
+atlas = ExtResource("3_6yhue")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8bie"]
+atlas = ExtResource("3_6yhue")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srj1e"]
+atlas = ExtResource("3_6yhue")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb8y8"]
+atlas = ExtResource("3_6yhue")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkve5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihwba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrcbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wihb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k52p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8bie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srj1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb8y8")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
-radius = 103.077644
+radius = 132.03409
 
 [node name="Torre_burn" type="Node2D" unique_id=1741663129]
 script = ExtResource("1_t7ulp")
 tipo_dano = "Fogo"
+dano = 4
 cadencia = 0.75
+projetil_cena = ExtResource("3_pjf01")
+frame_disparo = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1893167189]
+z_index = 1
+position = Vector2(0, -29.999998)
+scale = Vector2(0.7708333, 0.7916667)
+sprite_frames = SubResource("SpriteFrames_xrivr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=357409826]
-scale = Vector2(0.363, 0.3)
+texture_filter = 1
+position = Vector2(0, -14.999999)
+scale = Vector2(0.93750006, 0.92187506)
 texture = ExtResource("2_bfc3a")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=403673835]

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c1fwuralxsh42"]
+
+[ext_resource type="Script" uid="uid://bo33depwaom1m" path="res://Scripts/selecao_fases.gd" id="1_fase1"]
+
+[node name="SelecaoMundo" type="Control" unique_id=1928084976]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_fase1")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1533907669]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -36.0
+offset_right = 100.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer" unique_id=417977597]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BotaoFase1" type="Button" parent="CenterContainer/VBox" unique_id=618799551]
+process_mode = 3
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Mundo 1"
+
+[node name="BotaoVoltar" type="Button" parent="CenterContainer/VBox" unique_id=1036353559]
+process_mode = 3
+layout_mode = 2
+text = "Voltar"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=938037732]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+offset_bottom = -547.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="MarginContainer" unique_id=348301629]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 41
+text = "Selecione a Fase"
+horizontal_alignment = 1

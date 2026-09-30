@@ -1,16 +1,77 @@
 [gd_scene format=3 uid="uid://n64wubtloick"]
 
-[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="1_bvn5s"]
+[ext_resource type="Texture2D" uid="uid://bq8nho0ayxigh" path="res://Assets/Towers/torre_normal.png" id="1_bvn5s"]
 [ext_resource type="Script" uid="uid://cjajafsa8qpp5" path="res://Scripts/torre.gd" id="1_j1w73"]
+[ext_resource type="Texture2D" uid="uid://uucc3864qml0" path="res://Assets/Towers/TowerWeapons/weapon_normal.png" id="3_4ops6"]
+[ext_resource type="PackedScene" uid="uid://cb27cx36r8ftb" path="res://Scenes/projetil_normal.tscn" id="3_pjn01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaqlu"]
+atlas = ExtResource("3_4ops6")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5xwf"]
+atlas = ExtResource("3_4ops6")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6xof"]
+atlas = ExtResource("3_4ops6")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnxn7"]
+atlas = ExtResource("3_4ops6")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0orrx"]
+atlas = ExtResource("3_4ops6")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leowc"]
+atlas = ExtResource("3_4ops6")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaqlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5xwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6xof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnxn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0orrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leowc")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
-radius = 108.461975
+radius = 137.17871
 
 [node name="Torre" type="Node2D" unique_id=1741663129]
 script = ExtResource("1_j1w73")
+projetil_cena = ExtResource("3_pjn01")
+frame_disparo = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1303387000]
+z_index = 1
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_xrivr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=357409826]
-scale = Vector2(0.363, 0.3)
+texture_filter = 1
+position = Vector2(0, -9)
+scale = Vector2(1.125, 1)
 texture = ExtResource("1_bvn5s")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=403673835]

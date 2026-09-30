@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ehl6edbpuki2"]
+
+[ext_resource type="Script" uid="uid://csx4e51vwmiux" path="res://Scripts/inimigo.gd" id="1_1vr66"]
+[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="1_nj8y5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(30, 24)
+
+[node name="Area2D" type="Area2D" unique_id=2052992807]
+collision_layer = 2
+script = ExtResource("1_1vr66")
+velocidade = 80.0
+vida_max = 80
+valor_recompensa = 200
+dano_na_base = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901856167]
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1251666457]
+modulate = Color(1, 0.4, 0.4, 1)
+scale = Vector2(0.29, 0.23)
+texture = ExtResource("1_nj8y5")
+
+[node name="Label" type="Label" parent="." unique_id=1277845333]
+offset_right = 40.0
+offset_bottom = 23.0

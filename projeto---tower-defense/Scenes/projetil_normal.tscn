@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cb27cx36r8ftb"]
+
+[ext_resource type="Script" uid="uid://drds3yp42vp3b" path="res://Scripts/projetil.gd" id="1_proj1"]
+[ext_resource type="Texture2D" uid="uid://q6lalp054h3y" path="res://Assets/Projeteis/Tower 01 - Level 01 - Projectile.png" id="2_61e11"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmne2"]
+atlas = ExtResource("2_61e11")
+region = Rect2(0, 0, 8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umi7e"]
+atlas = ExtResource("2_61e11")
+region = Rect2(8, 0, 8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs3qe"]
+atlas = ExtResource("2_61e11")
+region = Rect2(16, 0, 8, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmne2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umi7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs3qe")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ProjetilNormal" type="Node2D" unique_id=1461929578]
+script = ExtResource("1_proj1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=460753856]
+position = Vector2(0, 5)
+scale = Vector2(1, 1.25)
+sprite_frames = SubResource("SpriteFrames_xrivr")
+autoplay = "default"
+frame_progress = 0.47049126

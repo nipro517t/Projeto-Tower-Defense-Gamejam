@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dqnxdsr4p04xm"]
+
+[ext_resource type="Script" uid="uid://drds3yp42vp3b" path="res://Scripts/projetil.gd" id="1_proj1"]
+[ext_resource type="Texture2D" uid="uid://bcos7l2uhctir" path="res://Assets/Projeteis/Tower 03 - Level 01 - Projectile.png" id="2_nbfcp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bdt6"]
+atlas = ExtResource("2_nbfcp")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6yam"]
+atlas = ExtResource("2_nbfcp")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s2yq"]
+atlas = ExtResource("2_nbfcp")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er2g0"]
+atlas = ExtResource("2_nbfcp")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy6ia"]
+atlas = ExtResource("2_nbfcp")
+region = Rect2(40, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol2e8"]
+atlas = ExtResource("2_nbfcp")
+region = Rect2(50, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bdt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6yam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s2yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er2g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy6ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol2e8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ProjetilFogo" type="Node2D" unique_id=1384241700]
+script = ExtResource("1_proj1")
+offset_rotacao_graus = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1677256614]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xrivr")
+autoplay = "default"
+frame_progress = 0.5515699

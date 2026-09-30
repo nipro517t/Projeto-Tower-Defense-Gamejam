@@ -22,6 +22,12 @@
 [ext_resource type="Texture2D" uid="uid://cibrulw6do7de" path="res://Assets/Heart/heart8.png" id="19_qtyhc"]
 [ext_resource type="Texture2D" uid="uid://2vjwbgmxyac2" path="res://Assets/Heart/heart9.png" id="20_q562m"]
 [ext_resource type="Texture2D" uid="uid://cl8hp64syy0qv" path="res://Assets/Heart/heart10.png" id="21_l8r83"]
+[ext_resource type="Script" uid="uid://b6v8tnywgpd4u" path="res://Scripts/shop_panel.gd" id="23_vxf74"]
+[ext_resource type="PackedScene" uid="uid://n64wubtloick" path="res://Scenes/torre.tscn" id="24_484xk"]
+[ext_resource type="PackedScene" uid="uid://c24vfipmk38ac" path="res://Scenes/torre_burn.tscn" id="25_lkt4f"]
+[ext_resource type="Script" uid="uid://qckg61jkdcha" path="res://Scripts/controles_jogo.gd" id="26_ctrl1"]
+[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="26_wfkbc"]
+[ext_resource type="Script" path="res://Scripts/info_torre_panel.gd" id="27_infop1"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_3gfia"]
 frames = 9
@@ -74,78 +80,308 @@ frame_11/duration = 1.0
 [node name="HUD" type="CanvasLayer" unique_id=1735513546]
 
 [node name="Control" type="Control" parent="." unique_id=607717341]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ajim5")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1809773022]
+[node name="TopBar" type="MarginContainer" parent="Control" unique_id=1809773022]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 74.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 21
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="coins_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1721467242]
+[node name="coins_container" type="HBoxContainer" parent="Control/TopBar" unique_id=1721467242]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="coin_icon" type="TextureRect" parent="Control/MarginContainer/coins_container" unique_id=1924473684]
+[node name="coin_icon" type="TextureRect" parent="Control/TopBar/coins_container" unique_id=1924473684]
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AnimatedTexture_3gfia")
 
-[node name="coin_counter" type="Label" parent="Control/MarginContainer/coins_container" unique_id=1409977399]
+[node name="coin_counter" type="Label" parent="Control/TopBar/coins_container" unique_id=1409977399]
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="wave_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=554366218]
+[node name="wave_container" type="HBoxContainer" parent="Control/TopBar" unique_id=554366218]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="wave_label" type="Label" parent="Control/MarginContainer/wave_container" unique_id=1093891358]
+[node name="wave_label" type="Label" parent="Control/TopBar/wave_container" unique_id=1093891358]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Rodada:"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="wave_counter" type="Label" parent="Control/MarginContainer/wave_container" unique_id=2086117244]
+[node name="wave_counter" type="Label" parent="Control/TopBar/wave_container" unique_id=2086117244]
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Control" type="Control" parent="Control/MarginContainer/wave_container" unique_id=299078506]
-custom_minimum_size = Vector2(300, 0)
+[node name="Control" type="Control" parent="Control/TopBar/wave_container" unique_id=299078506]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 
-[node name="life_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=129582793]
+[node name="life_container" type="HBoxContainer" parent="Control/TopBar" unique_id=129582793]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="life_icon" type="TextureRect" parent="Control/MarginContainer/life_container" unique_id=1218604129]
+[node name="life_icon" type="TextureRect" parent="Control/TopBar/life_container" unique_id=1218604129]
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AnimatedTexture_5ep0j")
 expand_mode = 3
 
-[node name="life_counter" type="Label" parent="Control/MarginContainer/life_container" unique_id=837499550]
+[node name="life_counter" type="Label" parent="Control/TopBar/life_container" unique_id=837499550]
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Control" type="Control" parent="Control/MarginContainer/life_container" unique_id=53439955]
+[node name="Control" type="Control" parent="Control/TopBar/life_container" unique_id=53439955]
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
+
+[node name="ShopPanel" type="Panel" parent="Control" unique_id=1294674943]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("23_vxf74")
+cena_torre_normal = ExtResource("24_484xk")
+cena_torre_fogo = ExtResource("25_lkt4f")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ShopPanel" unique_id=29553101]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/ShopPanel/MarginContainer" unique_id=2026084694]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/ShopPanel/MarginContainer/ScrollContainer" unique_id=298456328]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="BtnTorrePadrao" type="TextureButton" parent="Control/ShopPanel/MarginContainer/ScrollContainer/GridContainer" unique_id=1822904343]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("1_7gr8i")
+stretch_mode = 0
+
+[node name="PreçoTorrePadrão" type="Label" parent="Control/ShopPanel/MarginContainer/ScrollContainer/GridContainer/BtnTorrePadrao" unique_id=918104273]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 42.0
+offset_right = 46.0
+offset_bottom = 65.0
+text = "250"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnTorreBurn" type="TextureButton" parent="Control/ShopPanel/MarginContainer/ScrollContainer/GridContainer" unique_id=1234775203]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = ExtResource("2_5ep0j")
+stretch_mode = 0
+
+[node name="PreçoTorreBurn" type="Label" parent="Control/ShopPanel/MarginContainer/ScrollContainer/GridContainer/BtnTorreBurn" unique_id=1728182595]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 42.0
+offset_right = 46.0
+offset_bottom = 65.0
+text = "375"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotaoToggle" type="Button" parent="Control/ShopPanel" unique_id=1562808692]
+layout_mode = 0
+offset_left = -59.0
+offset_top = 608.0
+offset_right = -1.0
+offset_bottom = 648.0
+text = "Torres"
+
+[node name="Label" type="Label" parent="Control/ShopPanel" unique_id=1576257976]
+layout_mode = 0
+offset_right = 135.0
+offset_bottom = 39.0
+text = "LOJA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoTorrePanel" type="Panel" parent="Control" unique_id=948985061 node_paths=PackedStringArray("loja_panel", "botao_abrir_loja")]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("27_infop1")
+loja_panel = NodePath("../ShopPanel")
+botao_abrir_loja = NodePath("../ShopPanel/BotaoToggle")
+
+[node name="VBox" type="VBoxContainer" parent="Control/InfoTorrePanel" unique_id=345235989]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="LabelNome" type="Label" parent="Control/InfoTorrePanel/VBox" unique_id=1519705222]
+layout_mode = 2
+text = "Torre"
+horizontal_alignment = 1
+
+[node name="LabelStats" type="Label" parent="Control/InfoTorrePanel/VBox" unique_id=1519705223]
+layout_mode = 2
+text = "Dano: 0
+Cadência: 0.0s
+Nível: 0/5"
+
+[node name="HBoxPrioridade" type="HBoxContainer" parent="Control/InfoTorrePanel/VBox" unique_id=1519705224]
+layout_mode = 2
+
+[node name="BotaoAnterior" type="Button" parent="Control/InfoTorrePanel/VBox/HBoxPrioridade" unique_id=1519705225]
+layout_mode = 2
+text = "<"
+
+[node name="LabelPrioridade" type="Label" parent="Control/InfoTorrePanel/VBox/HBoxPrioridade" unique_id=1519705226]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mais avançado"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BotaoProximo" type="Button" parent="Control/InfoTorrePanel/VBox/HBoxPrioridade" unique_id=1519705227]
+layout_mode = 2
+text = ">"
+
+[node name="BotaoUpgrade" type="Button" parent="Control/InfoTorrePanel/VBox" unique_id=1519705228]
+layout_mode = 2
+text = "Upgrade"
+
+[node name="BotaoVender" type="Button" parent="Control/InfoTorrePanel/VBox" unique_id=1519705229]
+layout_mode = 2
+text = "Vender"
+
+[node name="BotaoFechar" type="Button" parent="Control/InfoTorrePanel/VBox" unique_id=1519705230]
+layout_mode = 2
+text = "Fechar"
+
+[node name="ControlesJogo" type="Control" parent="Control" unique_id=384719301]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("26_ctrl1")
+
+[node name="HBoxControles" type="HBoxContainer" parent="Control/ControlesJogo" unique_id=384719302]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = 17.0
+offset_right = 70.0
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_constants/separation = 10
+
+[node name="BotaoPlayPause" type="Button" parent="Control/ControlesJogo/HBoxControles" unique_id=384719303]
+layout_mode = 2
+text = "Play"
+
+[node name="BotaoVelocidade" type="Button" parent="Control/ControlesJogo/HBoxControles" unique_id=384719304]
+layout_mode = 2
+text = "1x"
+
+[node name="BotaoMenu" type="Button" parent="Control/ControlesJogo/HBoxControles" unique_id=384719311]
+layout_mode = 2
+text = "Menu"
+
+[node name="MenuPausa" type="Panel" parent="Control/ControlesJogo" unique_id=384719305]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -130.0
+offset_right = 110.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="VBox" type="VBoxContainer" parent="Control/ControlesJogo/MenuPausa" unique_id=384719306]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -90.0
+offset_right = 80.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="BotaoContinuar" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719307]
+layout_mode = 2
+text = "Continuar"
+
+[node name="BotaoConfiguracoes" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719308]
+layout_mode = 2
+text = "Configurações"
+
+[node name="BotaoVoltarMenu" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719309]
+layout_mode = 2
+text = "Voltar ao Menu"
+
+[node name="BotaoSair" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719310]
+layout_mode = 2
+text = "Sair do Jogo"

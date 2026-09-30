@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://d203kshmjc46u"]
+
+[ext_resource type="Script" uid="uid://ckhwds6xrr35x" path="res://Scripts/menu_principal.gd" id="1_menu1"]
+
+[node name="MenuPrincipal" type="Control" unique_id=842741807]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_menu1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1246437415]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titulo" type="Label" parent="MarginContainer" unique_id=619415560]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 40
+text = "TOWER DEFENSE"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1006801024]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer" unique_id=1644523877]
+process_mode = 3
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+theme_override_constants/separation = 10
+
+[node name="BtnJogar" type="Button" parent="CenterContainer/VBox" unique_id=245683122]
+custom_minimum_size = Vector2(268, 0)
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+text = "Jogar"
+
+[node name="BtnQuit" type="Button" parent="CenterContainer/VBox" unique_id=916408782]
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBox/BtnJogar" to="." method="_on_btn_jogar_pressed"]
+[connection signal="pressed" from="CenterContainer/VBox/BtnQuit" to="." method="_on_btn_quit_pressed"]

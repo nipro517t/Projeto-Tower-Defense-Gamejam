@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dba22maqauyk2"]
+
+[ext_resource type="Script" uid="uid://bt4vp331n8kgy" path="res://Scripts/selecionar_fase.gd" id="1_4elgu"]
+[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="1_od6rb"]
+
+[node name="Control" type="Control" unique_id=238250253]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4elgu")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1253763910]
+limit_left = 0
+limit_top = 0
+limit_right = 2000
+limit_bottom = 648
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1006816721]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.7360001
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -64.0
+offset_right = -285.87207
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1397376915]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/PanelContainer" unique_id=880142173]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("1_od6rb")
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer" unique_id=1789234085]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/PanelContainer2" unique_id=46091666]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("1_od6rb")
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer" unique_id=1140938378]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/PanelContainer3" unique_id=1303062779]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("1_od6rb")
