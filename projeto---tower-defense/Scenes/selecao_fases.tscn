@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1fwuralxsh42"]
 
 [ext_resource type="Script" uid="uid://bo33depwaom1m" path="res://Scripts/selecao_fases.gd" id="1_fase1"]
+[ext_resource type="Theme" uid="uid://b8iex2tnm3wa8" path="res://Assets/UI/tema_ui.tres" id="1_is8vw"]
 [ext_resource type="FontFile" uid="uid://bawrxjhyhrxmo" path="res://Fontes/BoldPixels.ttf" id="2_mpvao"]
 
 [node name="SelecaoMundo" type="Control" unique_id=1928084976]
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("1_is8vw")
 script = ExtResource("1_fase1")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1533907669]
@@ -44,6 +46,7 @@ text = "Mundo 1"
 [node name="BotaoVoltar" type="Button" parent="CenterContainer/VBox" unique_id=1036353559]
 process_mode = 3
 layout_mode = 2
+theme_type_variation = &"BotaoVermelho"
 theme_override_fonts/font = ExtResource("2_mpvao")
 text = "Voltar"
 
@@ -62,6 +65,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_type_variation = &"TituloFita"
 theme_override_fonts/font = ExtResource("2_mpvao")
 theme_override_font_sizes/font_size = 41
 text = "Selecione a Fase"

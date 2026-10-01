@@ -18,6 +18,9 @@ var _morto: bool = false   # impede morrer duas vezes (ex: burn + torre no mesmo
 # --- Ícones de efeito (fogo, gelo...) em cima do inimigo ---
 var _icones: Node2D
 
+# --- Barra de vida ---
+var _barra: Node2D
+
 # --- Burn (DOT) acumulativo ---
 var burn_potencia: int = 0        # dano por tick, soma a cada novo hit
 var burn_ticks_restantes: int = 0
@@ -25,7 +28,11 @@ var burn_timer: Timer = null
 const BURN_STACK_MAX: int = 50    # teto de balanceamento
 
 # --- Sprite e animação ---
-const PASTA_SPRITES := "res://Assets/Inimigos/Enemy2/"
+# O script testa as duas grafias da pasta; use a que existir no seu projeto.
+const PASTAS_POSSIVEIS := [
+	"res://Assets/Inimigos/Enemy2/",
+	"res://Assets/Inimigos/Enemy 2/",
+]
 const TAM_QUADRO := 96
 const FPS_ANIMACAO := 10.0
 var _sprite: AnimatedSprite2D
@@ -45,15 +52,32 @@ const TIPOS := {
 
 func _ready():
 	vida = vida_max
-	label.position = Vector2(-10, 22)   # número de vida abaixo dos pés do cavaleiro
+	label.position = Vector2(-10, 22)  # número de vida abaixo dos pés do cavaleiro
+	label.visible = false  
 	_montar_visual()
 	_icones = preload("res://Scripts/icones_efeito.gd").new()
 	add_child(_icones)
+
+	# barra de vida acima da cabeça (a altura acompanha o tamanho do sprite)
+	_barra = preload("res://Scripts/barra_vida.gd").new()
+	add_child(_barra)
+	_barra.position = Vector2(0, -54.0 * escala_visual)
+	_atualizar_barra()
+
 	_pos_anterior = global_position
 
 
 # Cria o AnimatedSprite2D por código, cortando cada PNG em quadros de 96x96.
 func _montar_visual():
+	var pasta := ""
+	for p in PASTAS_POSSIVEIS:
+		if ResourceLoader.exists(p + "S_Run.png"):
+			pasta = p
+			break
+	if pasta == "":
+		push_error("Pasta dos sprites do inimigo não encontrada. Confira PASTAS_POSSIVEIS no topo do script.")
+		return
+
 	var frames := SpriteFrames.new()
 	if frames.has_animation("default"):
 		frames.remove_animation("default")
@@ -61,9 +85,9 @@ func _montar_visual():
 	for direcao in ["D", "S", "U"]:
 		for anim in ["Run", "Death"]:
 			var nome: String = direcao + "_" + anim          # ex: "S_Run"
-			var tex := load(PASTA_SPRITES + nome + ".png") as Texture2D
+			var tex := load(pasta + nome + ".png") as Texture2D
 			if tex == null:
-				push_error("Sprite não encontrado: " + PASTA_SPRITES + nome + ".png")
+				push_error("Sprite não encontrado: " + pasta + nome + ".png")
 				return
 			frames.add_animation(nome)
 			frames.set_animation_speed(nome, FPS_ANIMACAO)
@@ -110,7 +134,8 @@ func _atualizar_animacao():
 
 	if absf(deslocamento.x) >= absf(deslocamento.y):
 		_direcao_atual = "S"
-		_sprite.flip_h = deslocamento.x > 0.0   # a arte de lado olha para a ESQUERDA: espelha ao ir para a direita
+		# a arte de lado olha para a ESQUERDA: espelha quando vai para a direita
+		_sprite.flip_h = deslocamento.x > 0.0
 	else:
 		_direcao_atual = "D" if deslocamento.y > 0.0 else "U"
 		_sprite.flip_h = false
@@ -127,10 +152,19 @@ func receber_dano(quantidade: int, tipo: String = "normal"):
 	if _morto:
 		return
 	vida -= quantidade
+	_atualizar_barra()
 	_mostrar_indicador_dano(quantidade, tipo)
 	_piscar(tipo)
 	if vida <= 0:
 		morrer(true)
+
+
+# A barra só aparece depois que o inimigo leva o primeiro dano.
+func _atualizar_barra():
+	if _barra == null:
+		return
+	_barra.visible = vida < vida_max and not _morto
+	_barra.atualizar(float(vida) / float(vida_max))
 
 
 func _mostrar_indicador_dano(quantidade: int, tipo: String):
@@ -144,7 +178,7 @@ func _mostrar_indicador_dano(quantidade: int, tipo: String):
 	indicador.add_theme_constant_override("outline_size", 4)
 	indicador.z_index = 10  # garante que desenha por cima dos sprites
 	get_tree().current_scene.add_child(indicador)
-	indicador.global_position = global_position + Vector2(-8, -40)
+	indicador.global_position = global_position + Vector2(-8, -54.0 * escala_visual - 14.0)
 
 	var tween = indicador.create_tween()
 	# ⚠️ "position:y" tween só a coordenada Y — sobe 24px suavemente.
@@ -237,6 +271,7 @@ func _tocar_morte():
 	set_deferred("monitorable", false)
 	label.visible = false
 	_icones.visible = false
+	_barra.visible = false
 	if burn_timer != null:
 		burn_timer.stop()
 

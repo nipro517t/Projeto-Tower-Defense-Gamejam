@@ -165,7 +165,7 @@ func _run() -> void:
 				continue
 			if _dist2_min(p, amostras) < dist_min * dist_min:
 				continue
-			if p.distance_to(pos_final) < 70.0:
+			if p.distance_to(pos_final) < 110.0:
 				continue
 			var livre := true
 			for o in ocupados:

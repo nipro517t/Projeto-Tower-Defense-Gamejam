@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d203kshmjc46u"]
 
 [ext_resource type="Script" uid="uid://ckhwds6xrr35x" path="res://Scripts/menu_principal.gd" id="1_menu1"]
+[ext_resource type="Theme" uid="uid://b8iex2tnm3wa8" path="res://Assets/UI/tema_ui.tres" id="1_y4xp8"]
 [ext_resource type="FontFile" uid="uid://bawrxjhyhrxmo" path="res://Fontes/BoldPixels.ttf" id="2_crked"]
 
 [node name="MenuPrincipal" type="Control" unique_id=842741807]
@@ -13,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 mouse_force_pass_scroll_events = false
+theme = ExtResource("1_y4xp8")
 script = ExtResource("1_menu1")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1246437415]
@@ -28,8 +30,10 @@ grow_vertical = 2
 [node name="Titulo" type="Label" parent="MarginContainer" unique_id=619415560]
 process_mode = 3
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
 mouse_filter = 1
+theme_type_variation = &"TituloFita"
 theme_override_fonts/font = ExtResource("2_crked")
 theme_override_font_sizes/font_size = 40
 text = "TOWER DEFENSE"
@@ -62,9 +66,10 @@ text = "Jogar"
 [node name="BtnQuit" type="Button" parent="CenterContainer/VBox" unique_id=916408782]
 layout_mode = 2
 mouse_force_pass_scroll_events = false
+theme_type_variation = &"BotaoVermelho"
 theme_override_fonts/font = ExtResource("2_crked")
 theme_override_font_sizes/font_size = 21
-text = "Quit"
+text = "Sair"
 
 [connection signal="pressed" from="CenterContainer/VBox/BtnJogar" to="." method="_on_btn_jogar_pressed"]
 [connection signal="pressed" from="CenterContainer/VBox/BtnQuit" to="." method="_on_btn_quit_pressed"]
