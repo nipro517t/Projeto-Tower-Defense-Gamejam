@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://ckux83p7t3bre" path="res://Scripts/info_torre_panel.gd" id="27_infop1"]
 [ext_resource type="Texture2D" uid="uid://bq8nho0ayxigh" path="res://Assets/Towers/torre_normal.png" id="27_qtyhc"]
 [ext_resource type="Texture2D" uid="uid://rlehlk67qroj" path="res://Assets/Towers/torre_fogo.png" id="28_q562m"]
+[ext_resource type="Theme" uid="uid://b8iex2tnm3wa8" path="res://Assets/UI/tema_ui.tres" id="31_q562m"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_3gfia"]
 frames = 9
@@ -386,6 +387,7 @@ offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("31_q562m")
 
 [node name="VBox" type="VBoxContainer" parent="Control/ControlesJogo/MenuPausa" unique_id=384719306]
 layout_mode = 1
@@ -419,5 +421,6 @@ text = "Voltar ao Menu"
 
 [node name="BotaoSair" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719310]
 layout_mode = 2
+theme_type_variation = &"BotaoVermelho"
 theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Sair do Jogo"
