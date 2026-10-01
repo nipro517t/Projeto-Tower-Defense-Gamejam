@@ -17,7 +17,8 @@ config/icon="res://Assets/icon.svg"
 
 [autoload]
 
-Game="*uid://b7tf153fr01gm"
+AudioManager="*uid://c2r8bsvh0wgrw"
+Game="*uid://osycskk7bcgw"
 
 [display]
 

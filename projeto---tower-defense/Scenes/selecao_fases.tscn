@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bo33depwaom1m" path="res://Scripts/selecao_fases.gd" id="1_fase1"]
 [ext_resource type="Theme" uid="uid://b8iex2tnm3wa8" path="res://Assets/UI/tema_ui.tres" id="1_is8vw"]
 [ext_resource type="FontFile" uid="uid://bawrxjhyhrxmo" path="res://Fontes/BoldPixels.ttf" id="2_mpvao"]
+[ext_resource type="Texture2D" uid="uid://fsaf2guorwpj" path="res://Assets/Clouds_1_completo.png" id="4_vkwvq"]
 
 [node name="SelecaoMundo" type="Control" unique_id=1928084976]
 process_mode = 3
@@ -70,3 +71,9 @@ theme_override_fonts/font = ExtResource("2_mpvao")
 theme_override_font_sizes/font_size = 41
 text = "Selecione a Fase"
 horizontal_alignment = 1
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=1679114357]
+z_index = -1
+position = Vector2(577.5, 324.5)
+scale = Vector2(1.998264, 2.0030866)
+texture = ExtResource("4_vkwvq")

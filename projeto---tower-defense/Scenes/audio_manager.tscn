@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c2r8bsvh0wgrw"]
+
+[ext_resource type="Script" uid="uid://bcub40gx8otp" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
+[ext_resource type="AudioStream" uid="uid://bxukme1cv82rv" path="res://Audio/Medieval Music – Cobblestone Village(MP3_160K).wav" id="2_4tj6f"]
+
+[node name="AudioManager" type="Node" unique_id=1353096351]
+script = ExtResource("1_sm2tf")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=265524920]
+stream = ExtResource("2_4tj6f")
+autoplay = true
