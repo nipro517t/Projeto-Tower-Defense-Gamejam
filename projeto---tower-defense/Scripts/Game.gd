@@ -35,6 +35,7 @@ func game_over(over: bool):
 
 
 func resetar_estado():
+	Engine.time_scale = 1.0
 	vida_jogador = 100
 	dinheiro = 500
 	wave = 1

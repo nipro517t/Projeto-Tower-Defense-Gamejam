@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cyv604uti2tst" path="res://Assets/Coin/coin9.png" id="9_ba8gd"]
 [ext_resource type="Texture2D" uid="uid://dbh870r226aib" path="res://Assets/Heart/heart1.png" id="10_0iicw"]
 [ext_resource type="Texture2D" uid="uid://b6g3vbauj2lar" path="res://Assets/Heart/heart2.png" id="11_ajim5"]
+[ext_resource type="FontFile" uid="uid://bawrxjhyhrxmo" path="res://Fontes/BoldPixels.ttf" id="11_s17ah"]
 [ext_resource type="Texture2D" uid="uid://cpmp6mql1nr4q" path="res://Assets/Heart/heart11.png" id="12_vxf74"]
 [ext_resource type="Texture2D" uid="uid://cdwgv1n2xbcb1" path="res://Assets/Heart/heart12.png" id="13_oersf"]
 [ext_resource type="Texture2D" uid="uid://3x4df2iprdv4" path="res://Assets/Heart/heart3.png" id="14_484xk"]
@@ -26,8 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://n64wubtloick" path="res://Scenes/torre.tscn" id="24_484xk"]
 [ext_resource type="PackedScene" uid="uid://c24vfipmk38ac" path="res://Scenes/torre_burn.tscn" id="25_lkt4f"]
 [ext_resource type="Script" uid="uid://qckg61jkdcha" path="res://Scripts/controles_jogo.gd" id="26_ctrl1"]
-[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="26_wfkbc"]
-[ext_resource type="Script" path="res://Scripts/info_torre_panel.gd" id="27_infop1"]
+[ext_resource type="Script" uid="uid://ckux83p7t3bre" path="res://Scripts/info_torre_panel.gd" id="27_infop1"]
+[ext_resource type="Texture2D" uid="uid://bq8nho0ayxigh" path="res://Assets/Towers/torre_normal.png" id="27_qtyhc"]
+[ext_resource type="Texture2D" uid="uid://rlehlk67qroj" path="res://Assets/Towers/torre_fogo.png" id="28_q562m"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_3gfia"]
 frames = 9
@@ -77,6 +79,10 @@ frame_10/duration = 1.0
 frame_11/texture = ExtResource("13_oersf")
 frame_11/duration = 1.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_vkwvq"]
+font = ExtResource("11_s17ah")
+font_size = 17
+
 [node name="HUD" type="CanvasLayer" unique_id=1735513546]
 
 [node name="Control" type="Control" parent="." unique_id=607717341]
@@ -113,6 +119,7 @@ texture = SubResource("AnimatedTexture_3gfia")
 
 [node name="coin_counter" type="Label" parent="Control/TopBar/coins_container" unique_id=1409977399]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -124,12 +131,14 @@ size_flags_vertical = 0
 [node name="wave_label" type="Label" parent="Control/TopBar/wave_container" unique_id=1093891358]
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Rodada:"
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="wave_counter" type="Label" parent="Control/TopBar/wave_container" unique_id=2086117244]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -138,6 +147,7 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 
 [node name="life_container" type="HBoxContainer" parent="Control/TopBar" unique_id=129582793]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -150,6 +160,7 @@ expand_mode = 3
 
 [node name="life_counter" type="Label" parent="Control/TopBar/life_container" unique_id=837499550]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -192,7 +203,8 @@ columns = 2
 texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture_normal = ExtResource("1_7gr8i")
+texture_normal = ExtResource("27_qtyhc")
+ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PreçoTorrePadrão" type="Label" parent="Control/ShopPanel/MarginContainer/ScrollContainer/GridContainer/BtnTorrePadrao" unique_id=918104273]
@@ -201,7 +213,8 @@ offset_left = 6.0
 offset_top = 42.0
 offset_right = 46.0
 offset_bottom = 65.0
-text = "250"
+theme_override_fonts/font = ExtResource("11_s17ah")
+text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -209,7 +222,8 @@ vertical_alignment = 1
 texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture_normal = ExtResource("2_5ep0j")
+texture_normal = ExtResource("28_q562m")
+ignore_texture_size = true
 stretch_mode = 0
 
 [node name="PreçoTorreBurn" type="Label" parent="Control/ShopPanel/MarginContainer/ScrollContainer/GridContainer/BtnTorreBurn" unique_id=1728182595]
@@ -218,7 +232,8 @@ offset_left = 6.0
 offset_top = 42.0
 offset_right = 46.0
 offset_bottom = 65.0
-text = "375"
+theme_override_fonts/font = ExtResource("11_s17ah")
+text = "150"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -228,12 +243,14 @@ offset_left = -59.0
 offset_top = 608.0
 offset_right = -1.0
 offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Torres"
 
 [node name="Label" type="Label" parent="Control/ShopPanel" unique_id=1576257976]
 layout_mode = 0
 offset_right = 135.0
 offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "LOJA"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -266,11 +283,13 @@ theme_override_constants/separation = 8
 
 [node name="LabelNome" type="Label" parent="Control/InfoTorrePanel/VBox" unique_id=1519705222]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Torre"
 horizontal_alignment = 1
 
 [node name="LabelStats" type="Label" parent="Control/InfoTorrePanel/VBox" unique_id=1519705223]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Dano: 0
 Cadência: 0.0s
 Nível: 0/5"
@@ -280,29 +299,36 @@ layout_mode = 2
 
 [node name="BotaoAnterior" type="Button" parent="Control/InfoTorrePanel/VBox/HBoxPrioridade" unique_id=1519705225]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "<"
 
 [node name="LabelPrioridade" type="Label" parent="Control/InfoTorrePanel/VBox/HBoxPrioridade" unique_id=1519705226]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mais avançado"
+label_settings = SubResource("LabelSettings_vkwvq")
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="BotaoProximo" type="Button" parent="Control/InfoTorrePanel/VBox/HBoxPrioridade" unique_id=1519705227]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = ">"
 
 [node name="BotaoUpgrade" type="Button" parent="Control/InfoTorrePanel/VBox" unique_id=1519705228]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Upgrade"
 
 [node name="BotaoVender" type="Button" parent="Control/InfoTorrePanel/VBox" unique_id=1519705229]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Vender"
 
 [node name="BotaoFechar" type="Button" parent="Control/InfoTorrePanel/VBox" unique_id=1519705230]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Fechar"
 
 [node name="ControlesJogo" type="Control" parent="Control" unique_id=384719301]
@@ -329,15 +355,21 @@ grow_horizontal = 2
 theme_override_constants/separation = 10
 
 [node name="BotaoPlayPause" type="Button" parent="Control/ControlesJogo/HBoxControles" unique_id=384719303]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Play"
 
 [node name="BotaoVelocidade" type="Button" parent="Control/ControlesJogo/HBoxControles" unique_id=384719304]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "1x"
 
 [node name="BotaoMenu" type="Button" parent="Control/ControlesJogo/HBoxControles" unique_id=384719311]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Menu"
 
 [node name="MenuPausa" type="Panel" parent="Control/ControlesJogo" unique_id=384719305]
@@ -372,16 +404,20 @@ theme_override_constants/separation = 12
 
 [node name="BotaoContinuar" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719307]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Continuar"
 
 [node name="BotaoConfiguracoes" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719308]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Configurações"
 
 [node name="BotaoVoltarMenu" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719309]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Voltar ao Menu"
 
 [node name="BotaoSair" type="Button" parent="Control/ControlesJogo/MenuPausa/VBox" unique_id=384719310]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_s17ah")
 text = "Sair do Jogo"

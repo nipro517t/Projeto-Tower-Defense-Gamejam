@@ -56,7 +56,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
-radius = 137.17871
+radius = 174.00287
 
 [node name="Torre" type="Node2D" unique_id=1741663129]
 script = ExtResource("1_j1w73")

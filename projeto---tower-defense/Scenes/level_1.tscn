@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://chgjsi0omiscr" path="res://Assets/Decor/grass_2.png" id="36_0jgxx"]
 [ext_resource type="Texture2D" uid="uid://cdv4ckfehotjn" path="res://Assets/Decor/grass_5.png" id="37_npx7t"]
 [ext_resource type="PackedScene" uid="uid://ehl6edbpuki2" path="res://Scenes/inimigo_forte.tscn" id="42_s764c"]
+[ext_resource type="PackedScene" uid="uid://cm5ptthbtyet8" path="res://Scenes/inimigo_forte_rapido.tscn" id="43_kpjai"]
 [ext_resource type="PackedScene" uid="uid://bs13divbl7rab" path="res://Scenes/boss.tscn" id="43_s764c"]
 
 [sub_resource type="Curve2D" id="Curve2D_qqy1o"]
@@ -112,7 +113,7 @@ metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
 
 [sub_resource type="Resource" id="Resource_hv30f"]
 script = ExtResource("8_grupo1")
-inimigo_cena = ExtResource("2_8ffim")
+inimigo_cena = ExtResource("42_s764c")
 quantidade = 15
 intervalo = 1.4
 metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
@@ -138,7 +139,7 @@ metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
 
 [sub_resource type="Resource" id="Resource_h3d7q"]
 script = ExtResource("8_grupo1")
-inimigo_cena = ExtResource("2_8ffim")
+inimigo_cena = ExtResource("42_s764c")
 quantidade = 25
 metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
 
@@ -163,7 +164,7 @@ metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
 
 [sub_resource type="Resource" id="Resource_hhyfv"]
 script = ExtResource("8_grupo1")
-inimigo_cena = ExtResource("2_8ffim")
+inimigo_cena = ExtResource("42_s764c")
 quantidade = 30
 intervalo = 0.7
 metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
@@ -182,20 +183,20 @@ metadata/_custom_type_script = "uid://dvdybwom3dh6n"
 [sub_resource type="Resource" id="Resource_taa1k"]
 script = ExtResource("8_grupo1")
 inimigo_cena = ExtResource("42_s764c")
-quantidade = 8
+quantidade = 30
 metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
 
 [sub_resource type="Resource" id="Resource_i7abj"]
 script = ExtResource("8_grupo1")
-inimigo_cena = ExtResource("2_8ffim")
+inimigo_cena = ExtResource("43_kpjai")
 quantidade = 8
-intervalo = 0.08
+intervalo = 0.3
 metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
 
 [sub_resource type="Resource" id="Resource_oxpbw"]
 script = ExtResource("8_grupo1")
 inimigo_cena = ExtResource("43_s764c")
-quantidade = 3
+quantidade = 4
 metadata/_custom_type_script = "uid://bs3lw8x2yed6w"
 
 [sub_resource type="Resource" id="Resource_eh1ed"]

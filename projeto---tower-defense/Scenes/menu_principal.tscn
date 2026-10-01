@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d203kshmjc46u"]
 
 [ext_resource type="Script" uid="uid://ckhwds6xrr35x" path="res://Scripts/menu_principal.gd" id="1_menu1"]
+[ext_resource type="FontFile" uid="uid://bawrxjhyhrxmo" path="res://Fontes/BoldPixels.ttf" id="2_crked"]
 
 [node name="MenuPrincipal" type="Control" unique_id=842741807]
 process_mode = 3
@@ -20,7 +21,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 34.0
+offset_top = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -29,6 +30,7 @@ process_mode = 3
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
+theme_override_fonts/font = ExtResource("2_crked")
 theme_override_font_sizes/font_size = 40
 text = "TOWER DEFENSE"
 horizontal_alignment = 1
@@ -53,11 +55,15 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(268, 0)
 layout_mode = 2
 mouse_force_pass_scroll_events = false
+theme_override_fonts/font = ExtResource("2_crked")
+theme_override_font_sizes/font_size = 21
 text = "Jogar"
 
 [node name="BtnQuit" type="Button" parent="CenterContainer/VBox" unique_id=916408782]
 layout_mode = 2
 mouse_force_pass_scroll_events = false
+theme_override_fonts/font = ExtResource("2_crked")
+theme_override_font_sizes/font_size = 21
 text = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBox/BtnJogar" to="." method="_on_btn_jogar_pressed"]

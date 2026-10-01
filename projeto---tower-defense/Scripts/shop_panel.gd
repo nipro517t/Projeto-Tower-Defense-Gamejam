@@ -6,8 +6,8 @@ extends Panel
 # arraste torre.tscn/torre_burn.tscn e ajuste os custos aqui no Inspector.
 @export var cena_torre_normal: PackedScene
 @export var cena_torre_fogo: PackedScene
-@export var custo_torre_normal: int = 50
-@export var custo_torre_fogo: int = 80
+@export var custo_torre_normal: int = 100
+@export var custo_torre_fogo: int = 150
 
 var aberto: bool = false
 # ⚠️ ajuste esse valor pra bater com a largura real que você quer pro painel

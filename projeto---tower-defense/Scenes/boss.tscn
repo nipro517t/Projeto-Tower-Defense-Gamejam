@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bs13divbl7rab"]
 
 [ext_resource type="Script" uid="uid://csx4e51vwmiux" path="res://Scripts/inimigo.gd" id="1_wwfse"]
-[ext_resource type="Texture2D" uid="uid://bqi7gk8uiqtj2" path="res://Assets/icon.svg" id="2_cxrok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(30, 24)
@@ -16,10 +15,6 @@ dano_na_base = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1901856166]
 shape = SubResource("RectangleShape2D_xrivr")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1251666456]
-scale = Vector2(0.23437499, 0.18749999)
-texture = ExtResource("2_cxrok")
 
 [node name="Label" type="Label" parent="." unique_id=1277845332]
 offset_right = 40.0

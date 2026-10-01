@@ -6,8 +6,11 @@ extends Node2D
 
 # Path2D da fase. Se ficar vazio, o script procura um nó chamado "Path2D" na cena.
 @export var caminho: Path2D
-# Distância mínima do CENTRO da torre até a linha do caminho (em pixels).
-@export var distancia_minima: float = 48.0
+# Metade da largura/altura do espaço que a torre ocupa no chão.
+@export var meia_pegada: Vector2 = Vector2(36, 48)
+# Metade da largura da estrada (64 px de largura -> 32) e uma folga extra.
+@export var meia_largura_estrada: float = 32.0
+@export var folga_caminho: float = 4.0
 
 var _preview: Node2D = null
 var _cena_no_preview: PackedScene = null  # guarda qual cena o preview atual representa
@@ -31,20 +34,35 @@ func _process(_delta):
 
 	if _preview:
 		_preview.global_position = get_global_mouse_position()
-		# Preview fica vermelho quando o local não é permitido (em cima do caminho)
+		# Preview fica vermelho quando o local não é permitido
 		if _pode_construir(_preview.global_position):
 			_preview.modulate = Color(1, 1, 1)
 		else:
 			_preview.modulate = Color(1, 0.35, 0.35)
 
 
-# Retorna false se a posição estiver perto demais da linha do caminho.
+# Retorna false se a torre encostaria na estrada ou em outra torre.
 func _pode_construir(pos: Vector2) -> bool:
-	if caminho == null or caminho.curve == null:
-		return true
-	var ponto_local := caminho.curve.get_closest_point(caminho.to_local(pos))
-	var ponto_global := caminho.to_global(ponto_local)
-	return pos.distance_to(ponto_global) >= distancia_minima
+	# 1) A área ocupada pela torre não pode tocar a estrada.
+	#    Testa 9 pontos (cantos, meios das bordas e centro) da área da torre.
+	if caminho != null and caminho.curve != null:
+		var minimo := meia_largura_estrada + folga_caminho
+		for dx in [-1, 0, 1]:
+			for dy in [-1, 0, 1]:
+				var ponto := pos + Vector2(dx * meia_pegada.x, dy * meia_pegada.y)
+				var mais_perto := caminho.curve.get_closest_point(caminho.to_local(ponto))
+				if ponto.distance_to(caminho.to_global(mais_perto)) < minimo:
+					return false
+
+	# 2) A área da torre não pode se sobrepor à de outra torre.
+	for outra in get_tree().get_nodes_in_group("torres"):
+		if not is_instance_valid(outra):
+			continue
+		var d: Vector2 = outra.global_position - pos
+		if absf(d.x) < meia_pegada.x * 2.0 and absf(d.y) < meia_pegada.y * 2.0:
+			return false
+
+	return true
 
 
 func _atualizar_preview():
@@ -59,8 +77,7 @@ func _atualizar_preview():
 
 	# ⚠️ Instanciamos a torre de verdade só pra LER o alcance (raio da
 	# CollisionShape2D) e copiar as texturas (base + arma) — depois
-	# descartamos essa instância. Assim o preview é só visual, sem Area2D
-	# nem Timer de ataque, e não afeta o jogo de verdade enquanto está "na mão".
+	# descartamos essa instância.
 	var torre_real = _cena_no_preview.instantiate()
 	var raio = torre_real.get_node("Area2D/CollisionShape2D").shape.radius
 	var sprite_original = torre_real.get_node("Sprite2D")
@@ -68,8 +85,7 @@ func _atualizar_preview():
 	var escala = sprite_original.scale
 	var pos_base = sprite_original.position
 
-	# ⚠️ A arma (AnimatedSprite2D) também entra no preview — sem isso, o
-	# preview mostrava só a base, sem a arma por cima.
+	# ⚠️ A arma (AnimatedSprite2D) também entra no preview.
 	var arma_original = torre_real.get_node("AnimatedSprite2D")
 	var frames_arma = arma_original.sprite_frames
 	var pos_arma = arma_original.position
@@ -89,7 +105,7 @@ func _atualizar_preview():
 
 	var arma_preview = AnimatedSprite2D.new()
 	arma_preview.sprite_frames = frames_arma
-	arma_preview.frame = 0  # ⚠️ só uma pose fixa pro preview, não precisa mirar em nada ainda
+	arma_preview.frame = 0  # ⚠️ só uma pose fixa pro preview
 	arma_preview.position = pos_arma
 	arma_preview.z_index = z_index_arma
 	arma_preview.modulate = Color(1, 1, 1, 0.5)
@@ -108,15 +124,16 @@ func _unhandled_input(event):
 		return
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		# Não deixa construir em cima do caminho (a torre continua na mão)
+		# Não deixa construir em cima da estrada nem de outra torre (a torre continua na mão)
 		if not _pode_construir(get_global_mouse_position()):
-			print("Não dá pra construir no caminho!")
+			print("Não dá pra construir aqui!")
 			return
 
 		if Game.dinheiro >= loja.custo_selecionado:
 			var torre = loja.torre_selecionada.instantiate()
 			torre.global_position = get_global_mouse_position()
 			torre.custo_pago = loja.custo_selecionado  # ⚠️ guardado pra calcular o valor de revenda depois
+			torre.add_to_group("torres")               # usado pra impedir torre sobre torre
 			get_tree().current_scene.add_child(torre)
 			Game.dinheiro -= loja.custo_selecionado
 			loja.torre_selecionada = null
